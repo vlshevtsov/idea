@@ -1,0 +1,20 @@
+{
+    "name": "idea",
+    "private": true,
+    "version": "0.0.0",
+    "scripts": {
+        "b": "pnpm --filter @idea/backend",
+        "w": "pnpm --filter @idea/webapp",
+        "dev": "pnpm -r --parallel dev",
+        "prettify": "pnpm -r --parallel prettify",
+        "prepare": "husky install"
+    },
+    "devDependencies": {
+        "eslint": "^9.18.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-config-standard-with-typescript": "^43.0.1",
+        "husky": "^8.0.3",
+        "lint-staged": "^15.4.1"
+    }
+}
