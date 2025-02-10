@@ -1,4 +1,4 @@
-import { zSignInTrpcInput } from '@idea/backend/src/router/signIn/input'
+import { zSignInTrpcInput } from '@idea/backend/src/router/auth/signIn/input'
 import Cookies from 'js-cookie'
 import { Alert } from '../../../components/Alert'
 import { Button } from '../../../components/Button'
