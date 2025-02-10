@@ -1,14 +1,14 @@
-import { zSignUpTrpcInput } from '@idea/backend/src/router/signUp/input'
+import { zSignUpTrpcInput } from '@idea/backend/src/router/auth/signUp/input'
 import Cookies from 'js-cookie'
 import { z } from 'zod'
-import { Alert } from '../../components/Alert'
-import { Button } from '../../components/Button'
-import { FormItems } from '../../components/FormItems'
-import { Input } from '../../components/Input'
-import { Segment } from '../../components/Segment'
-import { useForm } from '../../lib/form'
-import { trpc } from '../../lib/trpc'
-import { withPageWrapper } from '../../lib/pageWrapper'
+import { Alert } from '../../../components/Alert'
+import { Button } from '../../../components/Button'
+import { FormItems } from '../../../components/FormItems'
+import { Input } from '../../../components/Input'
+import { Segment } from '../../../components/Segment'
+import { useForm } from '../../../lib/form'
+import { trpc } from '../../../lib/trpc'
+import { withPageWrapper } from '../../../lib/pageWrapper'
 
 export const SignUpPage = withPageWrapper({
   redirectAuthorized: true,

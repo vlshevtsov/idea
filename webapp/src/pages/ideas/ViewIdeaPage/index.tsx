@@ -1,11 +1,11 @@
 import { format } from 'date-fns/format'
 import { useParams } from 'react-router-dom'
-import { getEditIdeaRoute, ViewIdeaRouteParams } from '../../lib/routes'
-import { trpc } from '../../lib/trpc'
+import { getEditIdeaRoute, ViewIdeaRouteParams } from '../../../lib/routes'
+import { trpc } from '../../../lib/trpc'
 import css from './index.module.scss'
-import { Segment } from '../../components/Segment'
-import { LinkButton } from '../../components/Button'
-import { withPageWrapper } from '../../lib/pageWrapper'
+import { Segment } from '../../../components/Segment'
+import { LinkButton } from '../../../components/Button'
+import { withPageWrapper } from '../../../lib/pageWrapper'
 
 export const ViewIdeaPage = withPageWrapper({
   useQuery: () => {
