@@ -4,6 +4,7 @@ import { getIdeaTrpcRoute } from './ideas/getIdea'
 import { getIdeasTrpcRoute } from './ideas/getIdeas'
 import { createIdeaTrpcRoute } from './ideas/createIdea'
 import { signUpTrpcRoute } from './auth/SignUp'
+import { updatePasswordTrpcRoute } from './auth/updatePassword'
 import { signInTrpcRoute } from './auth/signIn'
 import { getMeTrpcRoute } from './auth/getMe'
 import { updateProfileTrpcRoute } from './auth/updateProfile'
@@ -14,6 +15,7 @@ export const trpcRouter = trpc.router({
   getIdeas: getIdeasTrpcRoute,
   createIdea: createIdeaTrpcRoute,
   signUp: signUpTrpcRoute,
+  updatePassword: updatePasswordTrpcRoute,
   signIn: signInTrpcRoute,
   getMe: getMeTrpcRoute,
   updateProfile: updateProfileTrpcRoute,
