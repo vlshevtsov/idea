@@ -9,7 +9,7 @@ import { layoutContentElRef } from '../../../components/Layout'
 import { Loader } from '../../../components/Loader'
 
 export const AllIdeasPage = () => {
-  const { data, error, isLoading, isFetching, isError, hasNextPage, fetchNextPage, isFetchingNextPage, isRefetching } = trpc.getIdeas.useInfiniteQuery({
+  const { data, error, isLoading, isError, hasNextPage, fetchNextPage, isFetchingNextPage, isRefetching } = trpc.getIdeas.useInfiniteQuery({
     limit: 2,
   }, {
     getNextPageParam: (lastPage) => {
@@ -52,7 +52,9 @@ export const AllIdeasPage = () => {
                     </Link>
                   }
                   description={idea.description}
-                />
+                >
+                  Likes: {idea.likesCount}
+                </Segment>
               </div>
             ))}
           </InfiniteScroll>
