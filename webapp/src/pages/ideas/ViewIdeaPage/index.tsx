@@ -77,7 +77,8 @@ export const ViewIdeaPage = withPageWrapper({
     idea: checkExists(queryResult.data.idea, 'Idea not found'),
     me: ctx.me,
   }),
-  showLoaderOnFetching: false
+  showLoaderOnFetching: false,
+  title: ({ idea }) => idea.name,
 })(({ idea, me }) => (
   <Segment title={idea.name} description={idea.description}>
     <div className={css.createdAt}>
