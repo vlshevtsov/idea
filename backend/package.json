@@ -8,18 +8,19 @@
     "build-emails": "rimraf ./src/emails/dist && mkdir ./src/emails/dist && mjml ./src/emails/[!_]*.mjml -o ./src/emails/dist",
     "build": "pnpm build-ts && pnpm build-emails && pnpm copy-emails",
     "watch-emails": "mjml -w ./src/emails/[!_]*.mjml -o ./src/emails/dist",
-    "copy-emails": "copyfiles -u 1 ./src/emails/dist/*.html ./dist",
+    "copy-emails": "copyfiles ./src/emails/dist/*.html ./dist/backend",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/.eslintcache --ext .ts .",
-    "start": "node ./dist/index.js",
+    "start": "node ./dist/backend/src/index.js",
     "pmd": "prisma migrate dev",
     "pgc": "prisma generate",
     "prettify": "prettier --loglevel warn --cache --write '{src/**/*,*}.{ts,tsx,js,json,yml,scss}' '!**/{node_modules,dist}/**/*'",
-    "prepare": "pnpm pgc"
+    "prepare": "pnpm pgc && ts-patch install -s"
   },
   "prisma": {
     "schema": "./src/prisma/schema.prisma"
   },
   "dependencies": {
+    "@idea/webapp": "workspace:*",
     "@prisma/client": "^6.3.0",
     "@trpc/server": "^10.45.2",
     "cors": "^2.8.5",

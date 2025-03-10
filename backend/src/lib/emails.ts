@@ -5,6 +5,7 @@ import fg from 'fast-glob'
 import _ from 'lodash'
 import { env } from './env'
 import Handlebars from 'handlebars'
+import { getNewIdeaRoute } from '@idea/webapp/src/lib/routes'
 
 const getHbrTemplates = _.memoize(async () => {
   const htmlPathsPattern = path.resolve(__dirname, '../emails/dist/**/*.html')
@@ -63,7 +64,7 @@ export const sendWelcomeEmail = async ({ user }: { user: Pick<User, 'nick' | 'em
     templateName: 'welcome',
     templateVariables: {
       userNick: user.nick,
-      addIdeaUrl: `${env.WEBAPP_URL}/ideas/new`,
+      addIdeaUrl: `${env.WEBAPP_URL}${getNewIdeaRoute()}`,
     },
   })
 }
