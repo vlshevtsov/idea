@@ -5,7 +5,7 @@ import fg from 'fast-glob'
 import _ from 'lodash'
 import { env } from './env'
 import Handlebars from 'handlebars'
-import { getNewIdeaRoute } from '@idea/webapp/src/lib/routes'
+import { getNewIdeaRoute, getViewIdeaRoute } from '@idea/webapp/src/lib/routes'
 
 const getHbrTemplates = _.memoize(async () => {
   const htmlPathsPattern = path.resolve(__dirname, '../emails/dist/**/*.html')
@@ -76,6 +76,23 @@ export const sendIdeaBlockedEmail = async ({ user, idea }: { user: Pick<User, 'e
     templateName: 'ideaBlocked',
     templateVariables: {
       ideaNick: idea.nick,
+    },
+  })
+}
+
+export const sendMostLikedIdeasEmail = async ({
+  user,
+  ideas,
+}: {
+  user: Pick<User, 'email'>
+  ideas: Array<Pick<Idea, 'nick' | 'name'>>
+}) => {
+  return await sendEmail({
+    to: user.email,
+    subject: 'Most Liked Ideas!',
+    templateName: 'mostLikedIdeas',
+    templateVariables: {
+      ideas: ideas.map((idea) => ({ name: idea.name, url: getViewIdeaRoute({ abs: true, ideaNick: idea.nick }) })),
     },
   })
 }

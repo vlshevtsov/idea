@@ -1,10 +1,11 @@
+import { env } from './lib/env'
 import cors from 'cors'
 import express from 'express'
 import { applyTrpcToExpressApp } from './lib/trpc'
 import { trpcRouter } from './router'
 import { AppContext, createAppContext } from './lib/ctx'
 import { applyPassportToExpressApp } from './lib/passport'
-import { env } from './lib/env'
+
 import { presetDb } from './scripts/presetDb'
 import { applyCron } from './lib/cron'
 
