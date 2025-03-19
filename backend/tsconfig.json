@@ -6,7 +6,8 @@
   "compilerOptions": {
     "plugins": [{ "transform": "typescript-transform-paths" }],
     "paths": {
-      "@idea/webapp/*": ["../webapp/*"]
+      "@idea/webapp/*": ["../webapp/*"],
+      "@idea/shared/*": ["../shared/*"]
     },
     "outDir": "./dist",
     "allowJs": true,

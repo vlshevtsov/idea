@@ -5,6 +5,7 @@
     "scripts": {
         "b": "pnpm --filter @idea/backend",
         "w": "pnpm --filter @idea/webapp",
+        "sh": "pnpm --filter @idea/shared",
         "dev": "pnpm -r --parallel dev",
         "prettify": "pnpm -r --parallel prettify",
         "prepare": "husky install"

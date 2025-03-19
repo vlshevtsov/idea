@@ -1,14 +1,9 @@
 import _ from 'lodash'
 import { trpc } from '../../../lib/trpc'
-import { z } from 'zod'
+import { zGetIdeaTrpcInput } from './input'
 
 export const getIdeaTrpcRoute = trpc.procedure
-  .input(
-    z.object({
-      ideaNick: z.string(),
-    })
-  )
-  .query(async ({ ctx, input }) => {
+  .input(zGetIdeaTrpcInput).query(async ({ ctx, input }) => {
     const rawIdea = await ctx.prisma.idea.findUnique({
       where: {
         nick: input.ideaNick
@@ -40,7 +35,6 @@ export const getIdeaTrpcRoute = trpc.procedure
     if (rawIdea?.blockedAt) {
       throw new Error('Idea is blocked be admin')
     }
-    
     const isLikedByMe = !!rawIdea?.ideasLikes.length
     const likesCount = rawIdea?._count.ideasLikes || 0
     const idea = rawIdea && { ..._.omit(rawIdea, ['ideasLikes', '_count']), isLikedByMe, likesCount }

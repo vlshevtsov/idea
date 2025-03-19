@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@idea/webapp": "workspace:*",
+    "@idea/shared": "workspace:*",
     "@prisma/client": "^6.3.0",
     "@trpc/server": "^10.45.2",
     "cors": "^2.8.5",
