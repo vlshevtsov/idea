@@ -6,6 +6,7 @@ import _ from 'lodash'
 import { env } from './env'
 import Handlebars from 'handlebars'
 import { getNewIdeaRoute, getViewIdeaRoute } from '@idea/webapp/src/lib/routes'
+import { logger } from './logger'
 
 const getHbrTemplates = _.memoize(async () => {
   const htmlPathsPattern = path.resolve(__dirname, '../emails/dist/**/*.html')
@@ -43,7 +44,7 @@ const sendEmail = async ({
       homeUrl: env.WEBAPP_URL,
     }
     const html = await getEmailHtml(templateName, fullTemplateVaraibles)
-    console.info('sendEmail', {
+    logger.info('sendEmail', {
       to,
       subject,
       templateName,
@@ -52,7 +53,7 @@ const sendEmail = async ({
     })
     return { ok: true }
   } catch (error) {
-    console.error(error)
+    logger.error(error)
     return { ok: false }
   }
 }
