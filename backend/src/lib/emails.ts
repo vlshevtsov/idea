@@ -44,16 +44,19 @@ const sendEmail = async ({
       homeUrl: env.WEBAPP_URL,
     }
     const html = await getEmailHtml(templateName, fullTemplateVaraibles)
-    logger.info('sendEmail', {
+    logger.info('email', 'sendEmail', {
       to,
       subject,
       templateName,
       fullTemplateVaraibles,
-      html,
+      html
     })
     return { ok: true }
   } catch (error) {
-    logger.error(error)
+    logger.error('email', error, {
+      to,
+      templateName
+    })
     return { ok: false }
   }
 }
