@@ -1,5 +1,5 @@
 import { type inferRouterInputs, type inferRouterOutputs } from '@trpc/server'
-import { trpc } from '../lib/trpc'
+import { createTrpcRouter } from '../lib/trpc'
 import { getIdeaTrpcRoute } from './ideas/getIdea'
 import { getIdeasTrpcRoute } from './ideas/getIdeas'
 import { createIdeaTrpcRoute } from './ideas/createIdea'
@@ -12,7 +12,7 @@ import { updateProfileTrpcRoute } from './auth/updateProfile'
 import { updateIdeaTrpcRoute } from './ideas/updateIdea'
 import { setIdeaLikeTrpcRoute } from './ideas/setIdeaLike'
 
-export const trpcRouter = trpc.router({
+export const trpcRouter = createTrpcRouter({
   getIdea: getIdeaTrpcRoute,
   getIdeas: getIdeasTrpcRoute,
   createIdea: createIdeaTrpcRoute,
